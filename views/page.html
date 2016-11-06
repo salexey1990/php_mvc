@@ -1,0 +1,14 @@
+{include file="views/header.html"}
+	<div id='content'>
+		{foreach $authors as $key=>$value}
+			<h1>
+				{$value->Properties['name']}</a>
+			</h1>
+			<p>
+				articles: {foreach $value->Properties['article'] as $key1=>$value1}
+					<a href="index.php?page=Articles&action=read&id={$value1->Properties['id']}">{$value1->Properties['title']}</a>
+				{/foreach}
+			</p>
+		{/foreach}
+	</div>
+{include file="views/footer.html"}

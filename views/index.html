@@ -1,0 +1,23 @@
+{include file="views/header.html"}
+	<div id='content'>
+		{if $logged}
+		{foreach $articles as $key=>$value}
+			<h1>
+				<a href="index.php?page=Articles&action=read&id={$value->Properties['id']}">{$value->Properties['title']}</a>
+			</h1>
+			<p>
+				{$value->Properties['text']}
+			</p>
+			<p>
+				Author: <a href="index.php?page=Authors&action=read&id={$value->Properties['author'][0]->Properties['id']}">
+				{$value->Properties['author'][0]->Properties['name']}</a><br>
+				Views: {$value->Properties['views']}
+			</p>
+		{/foreach}
+		{/if}
+
+
+
+
+	</div>
+{include file="views/footer.html"}
